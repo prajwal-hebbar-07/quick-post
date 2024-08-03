@@ -1,12 +1,13 @@
-import { Typography } from "@mui/material";
 import { Outlet } from "react-router-dom";
+
+import MainHeader from "../components/MainHeader";
+import { Box, Divider } from "@mui/material";
 
 const RootLayout = () => {
   return (
     <>
-      <Typography variant="h3" component="h1">
-        Root Layout
-      </Typography>
+      <MainHeader />
+      <Divider variant="middle" sx={{ mx: 5, border: 2, my: 3 }} />
       <Outlet />
     </>
   );
