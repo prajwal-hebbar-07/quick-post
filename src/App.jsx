@@ -1,6 +1,8 @@
 import { lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import { loader as postLoader } from "./pages/Home";
+
 const RootLayout = lazy(() => import("./layouts/RootLayout"));
 const Home = lazy(() => import("./pages/Home"));
 const CreatePost = lazy(() => import("./pages/CreatePost"));
@@ -15,6 +17,7 @@ const App = () => {
         {
           path: "/",
           element: <Home />,
+          loader: postLoader,
           children: [
             {
               path: "create-post",

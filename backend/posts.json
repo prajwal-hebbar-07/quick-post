@@ -1,8 +1,8 @@
 {
   "posts": [
     {
-      "body": "This data is hopefully very helpful to you!",
-      "author": "Prajwal",
+      "info": "This data is hopefully very helpful to you!",
+      "name": "Prajwal",
       "id": "post-1"
     }
   ]
