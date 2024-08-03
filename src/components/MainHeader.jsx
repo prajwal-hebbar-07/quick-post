@@ -1,5 +1,6 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { Link } from "react-router-dom";
 
 const MainHeader = () => {
   return (
@@ -19,9 +20,11 @@ const MainHeader = () => {
           >
             QuickPost
           </Typography>
-          <Button variant="contained">
-            New post <AddIcon fontSize="small" sx={{ ml: 1 }} />
-          </Button>
+          <Link to="/create-post" style={{ textDecoration: "none" }}>
+            <Button variant="contained">
+              Create Post <AddIcon fontSize="small" sx={{ ml: 1 }} />
+            </Button>
+          </Link>
         </Box>
       </Container>
     </>
