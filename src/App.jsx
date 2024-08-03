@@ -1,8 +1,9 @@
 import { lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { loader as postLoader } from "./pages/Home";
+import { loader as postsLoader } from "./pages/Home";
 import { action as createPostAction } from "./pages/CreatePost";
+import { loader as individualPostLoader } from "./pages/PostDetails";
 
 const RootLayout = lazy(() => import("./layouts/RootLayout"));
 const Home = lazy(() => import("./pages/Home"));
@@ -18,7 +19,7 @@ const App = () => {
         {
           path: "/",
           element: <Home />,
-          loader: postLoader,
+          loader: postsLoader,
           children: [
             {
               path: "create-post",
@@ -28,6 +29,7 @@ const App = () => {
             {
               path: ":id",
               element: <PostDetails />,
+              loader: individualPostLoader,
             },
           ],
         },
