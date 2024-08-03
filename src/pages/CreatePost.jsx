@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Typography, Modal, Box, TextField, Button } from "@mui/material";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 
 const CreatePost = () => {
   const style = {
@@ -76,6 +76,7 @@ const CreatePost = () => {
                   backgroundColor: "#2d3250",
                   px: 3,
                 }}
+                type="submit"
               >
                 Submit
               </Button>
@@ -88,3 +89,18 @@ const CreatePost = () => {
 };
 
 export default CreatePost;
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const postData = Object.fromEntries(formData);
+  console.log(postData);
+  await fetch("http://localhost:8080/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(postData),
+  });
+
+  return redirect("/");
+}
