@@ -13,7 +13,7 @@ const Home = () => {
       <Container maxWidth="lg" sx={{ my: 2 }}>
         {posts.length > 0 ? (
           <Box>
-            <Grid container spacing={4}>
+            <Grid container spacing={5}>
               {posts.map((post) => (
                 <Post key={post.id} post={post}></Post>
               ))}
